@@ -14,7 +14,7 @@ vim.opt.breakindent = true -- enable break indent
 
 vim.opt.undofile = true -- enable undofile
 
-vim.opt.ignorecase = false -- enable case-sensitive search
+vim.opt.ignorecase = true -- enable case-sensitive search
 vim.opt.smartcase = true -- enable case-sensitive search
 
 vim.opt.signcolumn = 'yes' -- keep single column on by default

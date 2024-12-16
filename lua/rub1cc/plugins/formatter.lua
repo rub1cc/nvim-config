@@ -15,6 +15,7 @@ return { -- Autoformat
     notify_on_error = false,
     format_on_save = false,
     formatters_by_ft = {
+      python = { 'black' },
       lua = { 'stylua' },
       json = { 'prettierd', 'prettier', stop_after_first = true },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
