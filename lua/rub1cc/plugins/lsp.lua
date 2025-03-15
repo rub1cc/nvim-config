@@ -108,6 +108,7 @@ return { -- LSP Configuration & Plugins
       'prettier', -- Used to format JavaScript code
       'ts_ls', -- TypeScript Language Server
       'tailwindcss', -- Tailwind CSS Language Server
+      'pyright', -- Python Language Server
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

@@ -17,11 +17,11 @@ return { -- Autoformat
     formatters_by_ft = {
       python = { 'black' },
       lua = { 'stylua' },
-      json = { 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      json = { 'prettier', stop_after_first = true },
+      javascript = { 'prettier', stop_after_first = true },
+      javascriptreact = { 'prettier', stop_after_first = true },
+      typescript = { 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettier', stop_after_first = true },
     },
   },
 }
