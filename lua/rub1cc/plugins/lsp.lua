@@ -18,12 +18,14 @@ return { -- LSP Configuration & Plugins
           vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-        map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-        map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-        map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+        local telscope_builtin = require 'telescope.builtin'
+
+        map('gd', telscope_builtin.lsp_definitions, '[G]oto [D]efinition')
+        map('gr', telscope_builtin.lsp_references, '[G]oto [R]eferences')
+        map('gI', telscope_builtin.lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>D', telscope_builtin.lsp_type_definitions, 'Type [D]efinition')
+        map('<leader>ds', telscope_builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+        map('<leader>ws', telscope_builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
         map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -71,6 +73,15 @@ return { -- LSP Configuration & Plugins
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     local servers = {
+      gopls = {
+        settings = {
+          gopls = {
+            usePlaceholders = true,
+            completeUnimported = true,
+            staticcheck = true,
+          },
+        },
+      },
       ts_ls = {
         capabilities = capabilities,
         commands = {
@@ -109,6 +120,7 @@ return { -- LSP Configuration & Plugins
       'ts_ls', -- TypeScript Language Server
       'tailwindcss', -- Tailwind CSS Language Server
       'pyright', -- Python Language Server
+      'gopls', -- Go Language Server
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
