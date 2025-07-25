@@ -36,3 +36,5 @@ vim.opt.cursorline = true -- Show which line your cursor is on
 vim.opt.scrolloff = 10 -- Minimal number of screen lines to keep above and below the cursor.
 
 vim.opt.hlsearch = true -- Set highlight on search, but clear on pressing <Esc> in normal mode
+
+vim.diagnostic.config({ virtual_text = true })
