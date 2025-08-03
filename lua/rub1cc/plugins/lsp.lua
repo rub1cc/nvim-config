@@ -115,12 +115,18 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+
+      'html', -- HTML Language Server
       'eslint', -- Used to format JavaScript code
       'prettier', -- Used to format JavaScript code
       'ts_ls', -- TypeScript Language Server
       'tailwindcss', -- Tailwind CSS Language Server
+      'svelte', -- Svelte Language Server,
+
+      'ruff', -- Python LSP using ruff
+      'pylsp', -- Python Language Server
       'pyright', -- Python Language Server
-      'gopls', -- Go Language Server
+      'gopls', -- Go Language Server,
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
